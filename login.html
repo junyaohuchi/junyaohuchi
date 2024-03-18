@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div id="login">
+    <div id="login_id">
+        <div id="login_sub">
+            <h2> ログイン </h2>
+        </div>
+        <div id="form_sub">
+            <!--         <form method="post" action="">-->
+            <!--            {% csrf_token %}-->
+            <!--            {{ form.as_p }}-->
+            <!--            <input type="submit" id="save" value=" ログイン ">-->
+            <!--         </form>-->
+
+            <form method="post" action="">
+                {% csrf_token %}
+                <div id="username">
+                    <label for="id_username">ユーザー名</label>
+                    {{ form.username }}
+                </div>
+                <div id="password">
+                    <label for="id_password">パスワード</label>
+                    {{ form.password }}
+                </div>
+                <div id="input_login">
+                    <input type="submit" id="save" value="ログイン">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

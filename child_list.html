@@ -1,0 +1,56 @@
+{% extends 'base_sub.html' %}
+
+{% block content %}
+{% csrf_token %}
+<style>
+    #list_display{
+    position: relative;
+    width: 78%;
+    margin: 115px auto 0;
+    height: 1000px;
+    background-color: #e0e0e0;
+    z-index: 1;
+    }
+.create_link{
+      float: right;
+      margin: 0 18px 0 0;
+      width: 10%;
+      height: 66px;
+      background-color: #4169e1;
+      font-size: 3rem;
+      border-radius: 5px;
+      text-align: center;
+   }
+.create_link a{
+      color: #fff;
+}
+
+</style>
+<div id="list_display">
+    <h2>入所児童一覧</h2>
+
+    <div class="create_link">
+        <a href="{% url 'crud:child_create' %}">作成</a>
+    </div>
+    {% if childs_list %}
+    <div class="list_wrapper">
+        {% for child in childs_list %}
+        {% if child.state_flag %}
+        <div class="list">
+            <!-- {{ child.name_child }} -->
+            <div class="child_name">{{ child.name_child }}</div>
+            <div class="list_detail"><a href="{% url 'crud:child_detail' child.id %}">詳細表示</a></div>
+            <div class="list_update"><a href="{% url 'crud:child_update' child.id %}">更新</a></div>
+            <div class="list_delete"><a href="{% url 'crud:child_delete' child.id %}">退所</a></div>
+
+            <div class="clear"></div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+
+
+{% endblock %}

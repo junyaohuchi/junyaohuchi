@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% csrf_token %}
+<div id="delete">
+    <form method="post">{% csrf_token %}
+        <p>"{{ object }}様"を退所してもよろしいですか?</p>
+        <input type="submit" value="退所">
+    </form>
+</div>
+<!--  <h1>削除された人の一覧</h1>-->
+<!--    <ul>-->
+<!--        {% for person in deleted_persons %}-->
+<!--            <li>{{ person.name }} - {{ person.deleted_at }}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+
+{% endblock %}

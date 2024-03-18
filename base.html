@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+    <meta charset="UTF-8">
+    <title>{% block title %}顧客管理システム{% endblock %}</title>
+
+</head>
+<body>
+<header>
+    <div id="header_sub">
+        <div id="logo">
+             <img src="{% static "images/header_logo.png" %}">
+        </div>
+        <div id="client">
+            <h1>顧客管理システム</h1>
+        </div>
+    </div>
+</header>
+<!--<img src="{% static "images/　　　" %}">-->
+<!--<p><a href={% url "accounts:home" %}>Homeへ</a></p>-->
+<!--<hr>-->
+
+<div id="content">
+    {% block content %}{% endblock %}
+</div>
+<footer>
+    <div id="footer_sub">
+        <div id="footer_sub_main">
+            <div id="footer_sub_left">
+                <div id="footer_logo">
+                      <img src="{% static "images/footer_logo.png" %}">
+                </div>
+                <div id="nav">
+                    <ul>
+                        <li><a href="#">サイトマップ</a></li>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="copy_write">
+                <p>&COPY;JAPANMANAGEMENT</p>
+            </div>
+        </div>
+        <div id="footer_sub_right">
+            <adress>
+                〒111-0000<br>
+                東京都　港区　●●ー●●ー●●<br>
+                03-1111-0000
+            </adress>
+        </div>
+
+    </div>
+</footer>
+</body>
+</html>

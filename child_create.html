@@ -1,0 +1,61 @@
+{% extends 'base_sub.html' %}
+
+{% block content %}
+
+<div id="information">
+    <div id="information_dev">
+        <div id="information_input">
+            <h2>情報入力</h2>
+        </div>
+        <div id="information_sub">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <!--    {{ form.as_p }}-->
+                <!--    <input type="submit" id="save" value="作成">-->
+
+                <div id="name_child">
+                    <label for="id_name_child">児童</label>
+                    {{form.name_child}}
+                </div>
+                <div id="name_parent">
+                    <label for="id_name_parent">保護者</label>
+                    {{form.name_parent}}
+                </div>
+                <div id="address">
+                    <label for="id_address">住所</label>
+                    {{form.address}}
+                </div>
+                <div id="phone_number">
+                    <label for="id_phone_number">電話番号</label>
+                    {{form.phone_number}}
+                </div>
+                <div id="email">
+                    <label for="id_email">e-mail</label>
+                    {{form.email}}
+                </div>
+                <div id="birthday">
+                    <label for="id_birthday">生年月日</label>
+                    {{form.birthday}}
+                </div>
+                <div id="contract_date">
+                    <label for="id_contract_date">契約日</label>
+                    {{form.contract_date}}
+                </div>
+                <div id="image">
+                    <label for="id_image">児童画像</label>
+                    {{form.image}}
+                </div>
+                <div id="input_create">
+                    <input type="submit" id="save" value="作成">
+                </div>
+                <div id="input_list">
+                    <a href="{% url 'crud:child_list' %}">一覧表示</a>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

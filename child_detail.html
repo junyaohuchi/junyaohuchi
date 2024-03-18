@@ -1,0 +1,52 @@
+{% extends 'base_sub.html' %}
+
+
+{% block content %}
+{% csrf_token %}
+<!--<h2>商品名:{{ object.name }}</h2>-->
+<style>
+    #input_list_sub_dev{
+           width: 14%;
+           height: 66px;
+           position: absolute;
+           right: 20%;
+           background-color: #4169e1;
+           font-size: 3rem;
+           border-radius: 5px;
+     }
+    #input_list_sub_dev a{
+            color: #fff;
+   }
+</style>
+<div id="detail">
+    {% if object.image %}
+    <div id="detail_img"><img src="{{ object.image.url }}/"></div>
+    {% endif %}
+    <!--<p>児童{{ object.name_child }}</p>-->
+    <!--<p>保護者{{ object.name_parent }}</p>-->
+    <!--<p>住所{{ object.address }}</p>-->
+    <!--<p>電話番号{{ object.phone_number }}</p>-->
+    <!--<p>email{{ object.email }}</p>-->
+    <!--<p>生年月日{{ object.birthday }}</p>-->
+    <!--<p>契約日{{ object.contract_date }}</p>-->
+    <!--<p>運用状況{{ object.state_flag }}</p>-->
+
+    <div id="detail_sub">
+        <div class="detail_sub_dev"><p>児童</p><span>{{ object.name_child }}</span></div>
+        <div class="detail_sub_dev"><p>保護者</p><span>{{ object.name_parent }}</span></div>
+        <div class="detail_sub_dev"><p>住所</p><span>{{ object.address }}</span></div>
+        <div class="detail_sub_dev"><p>電話番号</p><span>{{ object.phone_number }}</span></div>
+        <div class="detail_sub_dev"><p>email</p><span>{{ object.email }}</span></div>
+        <div class="detail_sub_dev"><p>生年月日</p><span>{{ object.birthday }}</span></div>
+        <div class="detail_sub_dev"><p>契約日</p><span>{{ object.contract_date }}</span></div>
+        <div id="input_list_sub_dev">
+            <a href="{% url 'crud:child_list' %}">一覧表示</a>
+        </div>
+
+    </div>
+    <!--<p>運用状況{{ object.state_flag }}</p>-->
+
+
+</div>
+
+{% endblock %}
